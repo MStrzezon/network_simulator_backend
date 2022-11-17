@@ -9,13 +9,13 @@ simulation_db = db.getDb('flaskr/datahandling/resources/simulation_params.json')
 simulation = Blueprint('simulation', __name__)
 
 
-@simulation.route("/params", methods=['PUT'])
+@simulation.route("/params", methods=['POST'])
 def add_simulation_params():
     schema = SimulationParamsSchema()
     try:
         simulation_params = SimulationParamsSchema().load(request.get_json())
     except ValidationError as err:
-        return err.messages
+        return err.messages, 400
     simulation_db.deleteAll()
     simulation_db.add(simulation_params)
     return schema.dump(simulation_db.getAll()[0])
