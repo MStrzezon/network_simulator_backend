@@ -1,15 +1,17 @@
-from flask import Flask, jsonify
+from flask import Flask
 from flask_restx import Api
 from flask_swagger_ui import get_swaggerui_blueprint
 
-from flaskr.datahandling.simulation_rest import simulation
-from flaskr.datahandling.devices_rest import devices
+from flaskr.datahandling.simulation_params_rest import simulation_params_blueprint
+from flaskr.datahandling.devices_rest import devices_blueprint
+from flaskr.framesextraction.simulation_rest import simulation_blueprint
 
 app = Flask(__name__)
 api = Api(app)
 
-app.register_blueprint(devices, url_prefix='/api/devices')
-app.register_blueprint(simulation, url_prefix='/api/simulation')
+app.register_blueprint(devices_blueprint, url_prefix='/api/devices')
+app.register_blueprint(simulation_params_blueprint, url_prefix='/api/simulation')
+app.register_blueprint(simulation_blueprint, url_prefix='/api/simulation')
 
 SWAGGER_URL = '/api/docs'
 API_URL = '/static/swagger.yaml'
