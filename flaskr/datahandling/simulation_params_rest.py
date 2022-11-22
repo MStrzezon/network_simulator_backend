@@ -6,10 +6,10 @@ from flaskr.model.simulation_params import SimulationParamsSchema
 
 simulation_db = db.getDb('flaskr/datahandling/resources/simulation_params.json')
 
-simulation = Blueprint('simulation', __name__)
+simulation_params_blueprint = Blueprint('simulation/params', __name__)
 
 
-@simulation.route("/params", methods=['POST'])
+@simulation_params_blueprint.route("", methods=['POST'])
 def add_simulation_params():
     schema = SimulationParamsSchema()
     try:
@@ -21,7 +21,7 @@ def add_simulation_params():
     return schema.dump(simulation_db.getAll()[0])
 
 
-@simulation.route("/params", methods=['GET'])
+@simulation_params_blueprint.route("", methods=['GET'])
 def get_simulation_params():
     schema = SimulationParamsSchema()
     simulation_params_list = simulation_db.getAll()

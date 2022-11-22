@@ -10,10 +10,10 @@ from flaskr.model.device import DeviceSchema
 
 devices_db = db.getDb('flaskr/datahandling/resources/devices.json')
 
-devices = Blueprint('devices', __name__, url_prefix="/devices")
+devices_blueprint = Blueprint('devices', __name__, url_prefix="/devices")
 
 
-@devices.route("/<int:device_id>", methods=['GET'])
+@devices_blueprint.route("/<int:device_id>", methods=['GET'])
 def get_device_by_id(device_id):
     schema = DeviceSchema()
     try:
@@ -23,14 +23,14 @@ def get_device_by_id(device_id):
         return jsonify('Device with id: {id} does not exists'.format(id=idNotFound.pk)), 400
 
 
-@devices.route("", methods=['GET'])
+@devices_blueprint.route("", methods=['GET'])
 def get_all_devices():
     schema = DeviceSchema(many=True)
     return schema.dump(devices_db.getAll())
 
 
 # TODO validate nested fields
-@devices.route("", methods=['POST'])
+@devices_blueprint.route("", methods=['POST'])
 def add_device():
     schema = DeviceSchema()
     try:
@@ -41,13 +41,13 @@ def add_device():
     return schema.dump(devices_db.getById(device_id))
 
 
-@devices.route("", methods=['DELETE'])
+@devices_blueprint.route("", methods=['DELETE'])
 def remove_all_devices():
     devices_db.deleteAll()
     return jsonify(True)
 
 
-@devices.route("/<int:device_id>", methods=['DELETE'])
+@devices_blueprint.route("/<int:device_id>", methods=['DELETE'])
 def remove_device_by_id(device_id):
     try:
         devices_db.deleteById(device_id)
@@ -56,7 +56,7 @@ def remove_device_by_id(device_id):
     return jsonify(True)
 
 
-@devices.route("/<int:device_id>/device-path", methods=['GET'])
+@devices_blueprint.route("/<int:device_id>/device-path", methods=['GET'])
 def get_device_path(device_id):
     schema = CoordinatesSchema(many=True)
     try:
@@ -66,7 +66,7 @@ def get_device_path(device_id):
         return jsonify('Device with id: {id} does not exists'.format(id=idNotFound.pk)), 400
 
 
-@devices.route("/<int:device_id>/device-path", methods=['PUT'])
+@devices_blueprint.route("/<int:device_id>/device-path", methods=['PUT'])
 def update_device_path(device_id):
     try:
         path = CoordinatesSchema(many=True).load(request.get_json())
@@ -82,7 +82,7 @@ def update_device_path(device_id):
     return device_schema.dump(devices_db.getById(device_id))
 
 
-@devices.route("/<int:device_id>/device-path", methods=['DELETE'])
+@devices_blueprint.route("/<int:device_id>/device-path", methods=['DELETE'])
 def clear_device_path(device_id):
     try:
         device = devices_db.getById(device_id)
