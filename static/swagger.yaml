@@ -215,16 +215,16 @@ paths:
                 $ref: '#/components/schemas/simulationParams'
         '400':
           description: Incorrect body
-  /simulation/start:
-    put:
-      tags:
-        - Simulation
-      summary: Start simulation
-      description: Starts simulation
-      operationId: startSimulation
-      responses:
-        '200':
-          description: OK
+#  /simulation/start:
+#    put:
+#      tags:
+#        - Simulation
+#      summary: Start simulation
+#      description: Starts simulation
+#      operationId: startSimulation
+#      responses:
+#        '200':
+#          description: OK
 components:
   schemas:
     device:

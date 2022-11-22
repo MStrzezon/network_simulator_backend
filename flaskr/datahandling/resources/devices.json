@@ -1,1 +1,139 @@
-{"data": [{"path": [{"height": 0.0, "longitude": 0.0, "latitude": 0.0}], "id": 287544874858483754, "name": "string", "radio_params": {}}, {"path": [{"longitude": 1.0, "latitude": 1.0, "height": 1.0}, {"longitude": 1.0, "latitude": 1.0, "height": 2.0}], "name": "test1", "radio_params": {"param3": "param3_val", "param1": "param1_val", "param2": "param2_val"}, "id": 227140131211081298}, {"path": [{"latitude": 0.0, "longitude": 0.0, "height": 0.0}], "id": 317134474999238429, "radio_params": {"param1": "string", "param2": "string"}, "name": "string"}, {"path": [{"latitude": 0.0, "longitude": 0.0, "height": 0.0}], "id": 692586667530612940, "radio_params": {"param1": "string", "param2": "string"}, "name": "string"}, {"path": [{"height": 1.0, "latitude": 1.0}, {"height": 2.0, "longitude": 1.0, "latitude": 1.0}], "id": 272190779912368449, "radio_params": {"param2": "param2_val", "param1": "param1_val", "param3": "param3_val"}, "name": "test1"}, {"path": [{"longitude": 1.0, "latitude": 1.0, "height": 1.0}, {"longitude": 1.0, "latitude": 1.0, "height": 2.0}], "radio_params": {"param1": "param1_val", "param2": "param2_val", "param3": "param3_val"}, "id": 327472740851530992, "name": "test1"}, {"path": [{"longitude": 1.0, "latitude": 1.0, "height": 1.0}, {"longitude": 1.0, "latitude": 1.0, "height": 2.0}], "radio_params": {"param1": "param1_val", "param2": "param2_val", "param3": "param3_val"}, "id": 137305968871704255, "name": "test1"}]}
+{
+   "data": [
+      {
+         "path": [
+            {
+               "height": 0.0,
+               "longitude": 0.0,
+               "latitude": 0.0
+            },
+            {
+               "latitude": 1.0,
+               "height": 10.0,
+               "longitude": 1.0
+            },
+            {
+               "latitude": 1.0,
+               "height": 19.0,
+               "longitude": 1.0
+            }
+         ],
+         "id": 287544874858483754,
+         "name": "string",
+         "radio_params": {}
+      },
+      {
+         "path": [
+            {
+               "longitude": 1.0,
+               "latitude": 1.0,
+               "height": 1.0
+            },
+            {
+               "longitude": 1.0,
+               "latitude": 1.0,
+               "height": 2.0
+            }
+         ],
+         "name": "test1",
+         "radio_params": {
+            "param3": "param3_val",
+            "param1": "param1_val",
+            "param2": "param2_val"
+         },
+         "id": 227140131211081298
+      },
+      {
+         "path": [
+            {
+               "latitude": 0.0,
+               "longitude": 0.0,
+               "height": 0.0
+            }
+         ],
+         "id": 317134474999238429,
+         "radio_params": {
+            "param1": "string",
+            "param2": "string"
+         },
+         "name": "string"
+      },
+      {
+         "path": [
+            {
+               "latitude": 0.0,
+               "longitude": 0.0,
+               "height": 0.0
+            }
+         ],
+         "id": 692586667530612940,
+         "radio_params": {
+            "param1": "string",
+            "param2": "string"
+         },
+         "name": "string"
+      },
+      {
+         "path": [
+            {
+               "height": 1.0,
+               "latitude": 1.0
+            },
+            {
+               "height": 2.0,
+               "longitude": 1.0,
+               "latitude": 1.0
+            }
+         ],
+         "id": 272190779912368449,
+         "radio_params": {
+            "param2": "param2_val",
+            "param1": "param1_val",
+            "param3": "param3_val"
+         },
+         "name": "test1"
+      },
+      {
+         "path": [
+            {
+               "longitude": 1.0,
+               "latitude": 1.0,
+               "height": 1.0
+            },
+            {
+               "longitude": 1.0,
+               "latitude": 1.0,
+               "height": 2.0
+            }
+         ],
+         "radio_params": {
+            "param1": "param1_val",
+            "param2": "param2_val",
+            "param3": "param3_val"
+         },
+         "id": 327472740851530992,
+         "name": "test1"
+      },
+      {
+         "path": [
+            {
+               "longitude": 1.0,
+               "latitude": 1.0,
+               "height": 1.0
+            },
+            {
+               "longitude": 1.0,
+               "latitude": 1.0,
+               "height": 2.0
+            }
+         ],
+         "radio_params": {
+            "param1": "param1_val",
+            "param2": "param2_val",
+            "param3": "param3_val"
+         },
+         "id": 137305968871704255,
+         "name": "test1"
+      }
+   ]
+}
