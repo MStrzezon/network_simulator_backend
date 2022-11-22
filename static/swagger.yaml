@@ -1,0 +1,261 @@
+openapi: 3.0.0
+info:
+  description: sean
+  version: 1.0.0
+  title: Network simulator
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+  - url: /api/
+tags:
+  - name: Devices
+    description: Handling devices
+  - name: DevicesPaths
+    description: Handling devices paths
+  - name: SimulationParams
+    description: Handling simulation params
+  - name: Simulation
+    description: Handling simulation
+paths:
+  /devices:
+    get:
+      tags:
+        - Devices
+      summary: Returns all devices
+      operationId: getDevices
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/device'
+    post:
+      tags:
+        - Devices
+      summary: Add a new device to the simulation
+      description: Add a new device to the simulation
+      operationId: addDevice
+      requestBody:
+        description: Create a new device
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/device'
+      responses:
+        '200':
+          description: Successful operation. Returned added device
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/device'
+    delete:
+      tags:
+        - Devices
+      summary: Deletes all devices
+      description: delete all devices
+      operationId: deleteAllDevices
+      responses:
+        '200':
+          description: All devices successfully deleted
+  /devices/{device_id}:
+    get:
+      tags:
+        - Devices
+      summary: Find device by id
+      description: Returns a single device
+      operationId: getDeviceById
+      parameters:
+        - name: device_id
+          in: path
+          description: ID of device to return
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/device'
+        '400':
+          description: Bad request
+    delete:
+      tags:
+        - Devices
+      summary: Deletes a device
+      description: delete a pet
+      operationId: deletePet
+      parameters:
+        - name: device_id
+          in: path
+          description: Device id to delete
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Device deleted
+        '400':
+          description: Invalid device id
+  /devices/{device_id}/device-path:
+    get:
+      tags:
+        - DevicesPaths
+      summary: Find device path
+      description: Returns a device path
+      operationId: getDevicePath
+      parameters:
+        - name: device_id
+          in: path
+          description: ID of device to path return
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/device'
+        '400':
+          description: Device with Id does not exist
+    put:
+      tags:
+        - DevicesPaths
+      summary: Updates a device path
+      description: Update a device path
+      operationId: updateDevicePath
+      parameters:
+        - name: device_id
+          in: path
+          description: ID of device to path return
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: Create a new device path
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/coordinates'
+      responses:
+        '200':
+          description: Successfully updated device path
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/coordinates'
+        '400':
+          description: Device with Id does not exist
+        '405':
+          description: Incorrect body
+    delete:
+      tags:
+        - DevicesPaths
+      summary: Clears a device path
+      description: Clear a device path
+      operationId: clearDevicePath
+      parameters:
+        - name: device_id
+          in: path
+          description: ID of device to path return
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully deleted device path
+        '400':
+          description: Device with Id does not exist
+  /simulation/params:
+    get:
+      tags:
+        - SimulationParams
+      summary: Get all simulation params
+      description: Returns a simulation params
+      operationId: getSimulationParams
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/simulationParams'
+    post:
+      tags:
+        - SimulationParams
+      summary: Creates simulation params
+      description: Create simulation params
+      operationId: createSimulationParams
+      requestBody:
+        description: Create simulationParams
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/simulationParams'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/simulationParams'
+        '400':
+          description: Incorrect body
+#  /simulation/start:
+#    put:
+#      tags:
+#        - Simulation
+#      summary: Start simulation
+#      description: Starts simulation
+#      operationId: startSimulation
+#      responses:
+#        '200':
+#          description: OK
+components:
+  schemas:
+    device:
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        radio_params:
+          $ref: '#/components/schemas/radioParams'
+        path:
+          type: array
+          items:
+            $ref: '#/components/schemas/coordinates'
+    radioParams:
+      properties:
+        param1:
+          type: string
+        param2:
+          type: string
+    coordinates:
+      properties:
+        latitude:
+          type: number
+        longitude:
+          type: number
+        height:
+          type: number
+    simulationParams:
+      properties:
+        param1:
+          type: string
+        param2:
+          type: string
