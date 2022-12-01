@@ -3,7 +3,7 @@ from flask import Blueprint, jsonify
 from pysondb import db
 
 from flaskr.datahandling.data_collector import collect_data
-from flaskr.model.frame import Frame
+from flaskr.model.frame import Frame, FrameSchema
 
 frames_db = db.getDb('flaskr/framesextraction/resources/frames.json')
 
@@ -24,8 +24,8 @@ def start_simulation():
 
 @sio.on('my event')
 def get_frames_from_engine(frames):
-    for frame_from_engine in frames:
-        frame = Frame().load(frame_from_engine)
+    for key in frames:
+        frame = FrameSchema().load(frames[key])
         frames_db.add(frame)
 
 
@@ -41,10 +41,11 @@ def check_available_frames():
 
 @simulation_blueprint.route("/is-chunk-ready", methods=['GET'])
 def is_chunk_ready():
-    return None
+    return len(frames_db.get()) == 0
 
 
 @simulation_blueprint.route("/extract-frame", methods=['GET'])
 def extract_frame():
-    frame = frames_db.get()
+    frame = frames_db.get()[0]
+    frames_db.deleteById(frame['id'])
     return frame
