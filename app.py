@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS
 from flask_restx import Api
 from flask_swagger_ui import get_swaggerui_blueprint
 
@@ -8,6 +9,7 @@ from flaskr.framesextraction.simulation_rest import simulation_blueprint
 
 app = Flask(__name__)
 api = Api(app)
+CORS(app)
 
 app.register_blueprint(devices_blueprint, url_prefix='/api/devices')
 app.register_blueprint(simulation_params_blueprint, url_prefix='/api/simulation')
