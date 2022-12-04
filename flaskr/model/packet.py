@@ -18,12 +18,13 @@ class Packet(object):
 
 
 class PacketSchema(Schema):
+    tx = fields.Str()
+    rx = fields.Str()
     source = fields.Str()
     destination = fields.Str()
+    hops = fields.List(fields.Str())
     rssi = fields.Number()
     snr = fields.Number()
     duration = fields.Number()
-    calculated_ber = fields.Number()
     payload = fields.Str()
-    packet_type = fields.Str(allow_none=True)
     lost = fields.Boolean()

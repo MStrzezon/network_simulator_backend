@@ -1,4 +1,4 @@
-from marshmallow import Schema, fields
+from marshmallow import Schema, fields, post_dump, post_load
 
 from flaskr.model.device import Device, DeviceSchema
 from flaskr.model.link import LinkSchema
@@ -17,6 +17,12 @@ class Frame(object):
 
 
 class FrameSchema(Schema):
+    time = fields.Integer()
     devices = fields.Nested(SimulationDeviceSchema, many=True)
-    packets = fields.Nested(PacketSchema, many=True)
-    links = fields.Nested(LinkSchema, many=True)
+    packets = fields.Nested(PacketSchema, many=True, default=[])
+
+    @post_load
+    def change_none_to_empty_list(self, item, *args, **kwargs):
+        if not ('packets' in item.keys()):
+            item['packets'] = []
+        return item

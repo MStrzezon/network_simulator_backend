@@ -3,137 +3,51 @@
       {
          "path": [
             {
-               "height": 0.0,
-               "longitude": 0.0,
-               "latitude": 0.0
-            },
-            {
-               "latitude": 1.0,
-               "height": 10.0,
-               "longitude": 1.0
-            },
-            {
-               "latitude": 1.0,
-               "height": 19.0,
-               "longitude": 1.0
+               "lon": 19.90674912815427,
+               "alt": 1.5,
+               "lat": 50.070749606821,
+               "time": 0.0
             }
          ],
-         "id": 287544874858483754,
-         "name": "string",
-         "radio_params": {}
+         "tx_power": 14.0,
+         "name": "blonia",
+         "transmissions": [],
+         "id": 185522053013714096
       },
       {
          "path": [
             {
-               "longitude": 1.0,
-               "latitude": 1.0,
-               "height": 1.0
-            },
-            {
-               "longitude": 1.0,
-               "latitude": 1.0,
-               "height": 2.0
+               "lon": 19.9155651840895,
+               "alt": 3.0,
+               "lat": 50.065607816004636,
+               "time": 0.0
             }
          ],
-         "name": "test1",
-         "radio_params": {
-            "param3": "param3_val",
-            "param1": "param1_val",
-            "param2": "param2_val"
-         },
-         "id": 227140131211081298
+         "tx_power": 14.0,
+         "name": "alfa",
+         "transmissions": [],
+         "id": 254802095481912302
       },
       {
          "path": [
             {
-               "latitude": 0.0,
-               "longitude": 0.0,
-               "height": 0.0
+               "lon": 19.909718523873615,
+               "alt": 1.5,
+               "lat": 50.060667559992204,
+               "time": 0.0
             }
          ],
-         "id": 317134474999238429,
-         "radio_params": {
-            "param1": "string",
-            "param2": "string"
-         },
-         "name": "string"
-      },
-      {
-         "path": [
+         "tx_power": 14.0,
+         "name": "blonia",
+         "transmissions": [
             {
-               "latitude": 0.0,
-               "longitude": 0.0,
-               "height": 0.0
+               "data": "XD",
+               "length": 10.0,
+               "interval": 1500.0,
+               "destination": "all"
             }
          ],
-         "id": 692586667530612940,
-         "radio_params": {
-            "param1": "string",
-            "param2": "string"
-         },
-         "name": "string"
-      },
-      {
-         "path": [
-            {
-               "height": 1.0,
-               "latitude": 1.0
-            },
-            {
-               "height": 2.0,
-               "longitude": 1.0,
-               "latitude": 1.0
-            }
-         ],
-         "id": 272190779912368449,
-         "radio_params": {
-            "param2": "param2_val",
-            "param1": "param1_val",
-            "param3": "param3_val"
-         },
-         "name": "test1"
-      },
-      {
-         "path": [
-            {
-               "longitude": 1.0,
-               "latitude": 1.0,
-               "height": 1.0
-            },
-            {
-               "longitude": 1.0,
-               "latitude": 1.0,
-               "height": 2.0
-            }
-         ],
-         "radio_params": {
-            "param1": "param1_val",
-            "param2": "param2_val",
-            "param3": "param3_val"
-         },
-         "id": 327472740851530992,
-         "name": "test1"
-      },
-      {
-         "path": [
-            {
-               "longitude": 1.0,
-               "latitude": 1.0,
-               "height": 1.0
-            },
-            {
-               "longitude": 1.0,
-               "latitude": 1.0,
-               "height": 2.0
-            }
-         ],
-         "radio_params": {
-            "param1": "param1_val",
-            "param2": "param2_val",
-            "param3": "param3_val"
-         },
-         "id": 137305968871704255,
-         "name": "test1"
+         "id": 186137163070598272
       }
    ]
 }
