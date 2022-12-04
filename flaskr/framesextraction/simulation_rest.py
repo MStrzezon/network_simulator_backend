@@ -31,7 +31,7 @@ def check_available_frames():
 
 @simulation_blueprint.route("/is-chunk-ready", methods=['GET'])
 def is_chunk_ready():
-    return jsonify(len(frames_db.get()) != 0)
+    return jsonify(len(frames_db.getAll()) != 0)
 
 
 @simulation_blueprint.route("/extract-frame", methods=['GET'])
