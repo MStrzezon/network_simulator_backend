@@ -12,7 +12,7 @@ api = Api(app)
 CORS(app)
 
 app.register_blueprint(devices_blueprint, url_prefix='/api/devices')
-app.register_blueprint(simulation_params_blueprint, url_prefix='/api/simulation')
+app.register_blueprint(simulation_params_blueprint, url_prefix='/api/simulation/params')
 app.register_blueprint(simulation_blueprint, url_prefix='/api/simulation')
 
 SWAGGER_URL = '/api/docs'

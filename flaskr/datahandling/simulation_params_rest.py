@@ -6,7 +6,7 @@ from flaskr.model.simulation_params import SimulationParamsSchema
 
 simulation_db = db.getDb('flaskr/datahandling/resources/simulation_params.json')
 
-simulation_params_blueprint = Blueprint('simulation/params', __name__)
+simulation_params_blueprint = Blueprint('params', __name__)
 
 
 @simulation_params_blueprint.route("", methods=['POST'])

@@ -1,23 +1,22 @@
 from marshmallow import Schema, fields
 
 from flaskr.model.coordinates import CoordinatesSchema
-from flaskr.model.radio_params import RadioParamsSchema
+from flaskr.model.transmission import TransmissionSchema
 
 
 class Device(object):
-    def __init__(self, name, radio_params, path):
+    def __init__(self, name, tx_power, path, transmissions):
         self.name = name
-        self.radio_params = radio_params
+        self.tx_power = tx_power
         self.path = path
-        self.type = type
+        self.transmissions = transmissions
 
     def __repr__(self):
         return '<Transaction(name={self.description!r})>'.format(self=self)
 
 
 class DeviceSchema(Schema):
-    id = fields.Integer()
     name = fields.Str()
-    radio_params = fields.Nested(RadioParamsSchema)
+    tx_power = fields.Number()
     path = fields.Nested(CoordinatesSchema, many=True)
-    type = fields.Str()
+    transmissions = fields.Nested(TransmissionSchema, many=True, allow_none=True)

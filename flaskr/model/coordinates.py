@@ -2,10 +2,11 @@ from marshmallow import Schema, fields
 
 
 class Coordinates(object):
-    def __init__(self, latitude, longitude, height):
-        self.latitude = latitude
-        self.longitude = longitude
-        self.height = height
+    def __init__(self, time, latitude, longitude, altitude):
+        self.time = time
+        self.lat = latitude
+        self.lon = longitude
+        self.alt = altitude
         self.type = type
 
     def __repr__(self):
@@ -13,7 +14,8 @@ class Coordinates(object):
 
 
 class CoordinatesSchema(Schema):
-    latitude = fields.Number()
-    longitude = fields.Number()
-    height = fields.Number()
+    time = fields.Number()
+    lat = fields.Number()
+    lon = fields.Number()
+    alt = fields.Number()
     type = fields.Str()
