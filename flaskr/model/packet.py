@@ -1,8 +1,10 @@
-from marshmallow import Schema, fields
+from marshmallow import Schema, fields, post_load
 
 
 class Packet(object):
-    def __init__(self, source, destination, rssi, snr, duration, calculated_ber, payload, packet_type, lost):
+    def __init__(self, rx, tx, source, destination, rssi, snr, duration, calculated_ber, payload, packet_type, lost):
+        self.rx = rx
+        self.tx = tx
         self.source = source
         self.destination = destination
         self.rssi = rssi
@@ -14,7 +16,7 @@ class Packet(object):
         self.lost = lost
 
     def __repr__(self):
-        return '<Transaction(name={self.description!r})>'.format(self=self)
+        return '<Transaction(name={self.rx!r})>'.format(self=self)
 
 
 class PacketSchema(Schema):
@@ -28,3 +30,4 @@ class PacketSchema(Schema):
     duration = fields.Number()
     payload = fields.Str()
     lost = fields.Boolean()
+

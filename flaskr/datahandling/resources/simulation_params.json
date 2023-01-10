@@ -1,6 +1,7 @@
 {
    "data": [
       {
+         "simulation_time": 60000,
          "spreading_factor": 8,
          "bandwidth": 0.125,
          "phy_header_length": 11,

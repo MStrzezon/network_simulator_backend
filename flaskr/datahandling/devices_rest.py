@@ -36,7 +36,7 @@ def add_device():
     try:
         device = DeviceSchema().load(request.get_json())
     except ValidationError as err:
-        return err.messages
+        return err.messages, 400
     if not('transmissions' in device.keys()):
         device['transmissions'] = []
     device_id = devices_db.add(device)
